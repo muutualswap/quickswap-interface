@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, Pair } from '@uniswap/sdk'
+import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, Pair } from 'valuedex-sdk'
 import { useMemo } from 'react'
 import { UNI, EASY, USDC, ETHER, eUSDC, eUSDT, eDAI, UNITOKEN, QUICK, DAI, IGG, WBTC, USDT, MATIC, OM } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'

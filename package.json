@@ -1,6 +1,6 @@
 {
-  "name": "quickswap-interface",
-  "description": "Quickswap Interface",
+  "name": "interface",
+  "description": "valuedex Interface",
   "homepage": ".",
   "private": true,
   "devDependencies": {
@@ -27,7 +27,7 @@
     "@types/wcag-contrast": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
-    "@uniswap/sdk": "npm:quickswap-sdk@3.0.8",
+    "@uniswap/sdk": "npm:valuedex-sdk@3.0.4",
     "@uniswap/governance": "^1.0.2",
     "@uniswap/liquidity-staker": "^1.0.2",
     "@uniswap/merkle-distributor": "1.0.1",
@@ -121,6 +121,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7",
-    "react-toastify": "^6.2.0"
+    "react-toastify": "^6.2.0",
+    "valuedex-sdk": "3.0.4"
   }
 }

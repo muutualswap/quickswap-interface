@@ -1,12 +1,12 @@
-import { Currency, Percent, Price } from '@uniswap/sdk'
+import { Currency, Percent, Price } from 'valuedex-sdk'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'
 import { AutoColumn } from '../../components/Column'
 import { AutoRow } from '../../components/Row'
-import { ONE_BIPS } from '../../constants'
 import { Field } from '../../state/mint/actions'
 import { TYPE } from '../../theme'
+import { JSBI } from '@uniswap/sdk'
 
 export function PoolPriceBar({
   currencies,
@@ -20,6 +20,8 @@ export function PoolPriceBar({
   price?: Price
 }) {
   const theme = useContext(ThemeContext)
+  const ONE_BIPS = new Percent(JSBI.BigInt(1), JSBI.BigInt(10000))
+  poolTokenPercentage?.lessThan(ONE_BIPS);
   return (
     <AutoColumn gap="md">
       <AutoRow justify="space-around" gap="4px">
