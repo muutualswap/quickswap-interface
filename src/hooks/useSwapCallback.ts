@@ -51,7 +51,6 @@ function useSwapCallArguments(
   const recipient = recipientAddressOrName === null ? account : recipientAddress
   const deadline = useTransactionDeadline();
 
-  const v1Exchange = undefined;
 
   return useMemo(() => {
     const tradeVersion = Version.v2;
@@ -88,7 +87,7 @@ function useSwapCallArguments(
         break
     }
     return swapMethods.map(parameters => ({ parameters, contract }))
-  }, [account, allowedSlippage, chainId, deadline, library, recipient, trade, v1Exchange])
+  }, [account, allowedSlippage, chainId, deadline, library, recipient, trade])
 }
 
 // returns a function that will execute a swap, if the parameters are all valid
