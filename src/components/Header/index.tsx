@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify';
-//import { useTransactionAdder } from '../../state/transactions/hooks'
+import { useTransactionAdder } from '../../state/transactions/hooks'
 
 import styled from 'styled-components'
 
@@ -13,24 +13,24 @@ import styled from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
 //import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
-/**import { CardNoise } from '../earn/styled'
+import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE } from '../../theme'*/
+import { TYPE } from '../../theme'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
-//import Menu from '../Menu'
+import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import ClaimModal from '../claim/ClaimModal'
-//import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
-//import { useUserHasAvailableClaim } from '../../state/claim/hooks'
-//import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
-//import { Dots } from '../swap/styleds'
+import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
+import { useUserHasAvailableClaim } from '../../state/claim/hooks'
+import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
+import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
-//import usePrevious from '../../hooks/usePrevious'
+import usePrevious from '../../hooks/usePrevious'
 
 const HeaderFrame = styled.div`
   display: grid;
@@ -230,19 +230,19 @@ export default function Header() {
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   //const [isDark] = useDarkModeManager()
 
-  //const toggleClaimModal = useToggleSelfClaimModal()
+  const toggleClaimModal = useToggleSelfClaimModal()
 
-  //const availableClaim: boolean = useUserHasAvailableClaim(account)
+  const availableClaim: boolean = useUserHasAvailableClaim(account)
 
-  //const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
+  const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
 
-  //const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance()
+  const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance()
 
   const [showUniBalanceModal, setShowUniBalanceModal] = useState(false)
-  //const showClaimPopup = useShowClaimPopup()
+  const showClaimPopup = useShowClaimPopup()
 
-  //const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
-  //const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
+  const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
+  const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
   return (
     <HeaderFrame>
@@ -301,7 +301,7 @@ export default function Header() {
         </HeaderElement>
         <HeaderElementWrap>
           <Settings />
-          {/*<Menu />*/}
+          <Menu />
         </HeaderElementWrap>
       </HeaderControls>
     </HeaderFrame>
